@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Розыскно-информационный отдел "МЯУпол"</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_663f7076c9f50662e37ed70c_663f79051d849c75f28fa719/scale_1200" />
+  </head>
+  <body>
+    <header id="header" class="header">
+      <div class="overlay">
+        <h1 id="up" class="header-title">МЯУпол</h1>
+      </div>
+    </header>
+    <header class="second-header"> 
+        <div class="second-overlay">
+            <h1 class="second-header-title">Поймаем за хвост любого нарушителя!</h1>
+        </div>
+    </header>
+    <header class="navigation"> 
+        <nav> 
+            <ul>
+                <li><a href="index.html#header" target="_self">Главная</a></li>
+                <li><a href="index2.html">Отдел кот-контроля</a></li>
+                <li><a href="index3.html">Поместится ли преступник в камеру?</a></li>
+                <li><a href="passport.html">Данные оперативников</a></li>
+                <li><a href="index4.html"><u>Передать информацию</u></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h3 class="course-title">Решение алгоритмической задачи</h3>
+    <h1>РАСЧЁТ ВМЕСТИМОСТИ КОШАЧЬИХ ТЮРЕМ</h1>
+    
+    <div style="margin: 20px; padding: 20px; background: #f9f9f9; border-radius: 10px;">
+        <p><strong>Задача МЯУпола:</strong> Имеются две кошачьи тюрьмы: кубическая с ребром A, цилиндрическая с высотой H и радиусом основания R. 
+        Определить, поместится ли кот-преступник объёма M в первую тюрьму, во вторую, в обе.</p>
+        
+        <label for="A">Ребро кубической тюрьмы (A):</label>
+        <input type="number" id="A" placeholder="см"><br><br>
+        
+        <label for="H">Высота цилиндрической тюрьмы (H):</label>
+        <input type="number" id="H" placeholder="см"><br><br>
+        
+        <label for="R">Радиус цилиндрической тюрьмы (R):</label>
+        <input type="number" id="R" placeholder="см"><br><br>
+        
+        <label for="M">Объём кота-преступника (M):</label>
+        <input type="number" id="M" placeholder="см³"><br><br>
+        
+        <button id="checkButton">Проверить вместимость</button>
+    </div>
+
+    <div id="result" class="result" style="margin: 20px; padding: 20px; border: 2px solid #333; border-radius: 10px;"></div>
+
+    <script>
+        document.getElementById('checkButton').addEventListener('click', function() {
+            const A = parseFloat(document.getElementById('A').value);
+            const H = parseFloat(document.getElementById('H').value);
+            const R = parseFloat(document.getElementById('R').value);
+            const M = parseFloat(document.getElementById('M').value);
+            
+            if (isNaN(A) || isNaN(H) || isNaN(R) || isNaN(M)) {
+                document.getElementById('result').innerHTML = "Заполните все поля для расчёта тюрем!";
+                return;
+            }
+            
+            if (A <= 0 || H <= 0 || R <= 0 || M <= 0) {
+                document.getElementById('result').innerHTML = "Все значения должны быть больше 0! Даже объём кота!";
+                return;
+            }
+            
+            const cubeVolume = A * A * A; // V = A³
+            const cylinderVolume = Math.PI * R * R * H; // V = pR²H
+            
+            const fitsInCube = M <= cubeVolume;
+            const fitsInCylinder = M <= cylinderVolume;
+            const fitsInBoth = fitsInCube && fitsInCylinder;
+            
+            let resultHTML = "<h3> РЕЗУЛЬТАТЫ ПРОВЕРКИ ТЮРЕМ:</h3>";
+            resultHTML += `<p><strong>Объём кубической тюрьмы:</strong> ${cubeVolume.toFixed(2)} см³</p>`;
+            resultHTML += `<p><strong>Объём цилиндрической тюрьмы:</strong> ${cylinderVolume.toFixed(2)} см³</p>`;
+            resultHTML += `<p><strong>Объём кота-преступника:</strong> ${M} см³</p>`;
+            resultHTML += "<hr>";
+            resultHTML += `<p> <strong>Поместится в кубическую тюрьму:</strong> ${fitsInCube ? "ДА, можно сажать!" : "НЕТ, кот слишком пушистый!"}</p>`;
+            resultHTML += `<p> <strong>Поместится в цилиндрическую тюрьму:</strong> ${fitsInCylinder ? "ДА, идеально для круглых котов!" : "НЕТ, нужна тюрьма побольше!"}</p>`;
+            resultHTML += `<p> <strong>Поместится в обе тюрьмы:</strong> ${fitsInBoth ? "ДА, есть выбор для заключения!" : "НЕТ, только в одну тюрьму"}</p>`;
+            
+            if (fitsInBoth) {
+                resultHTML += `<p style="color: green; font-weight: bold;">Отлично! Кота можно посадить в любую тюрьму!</p>`;
+            } else if (fitsInCube || fitsInCylinder) {
+                resultHTML += `<p style="color: orange; font-weight: bold;">Есть вариант для заключения преступника!</p>`;
+            } else {
+                resultHTML += `<p style="color: red; font-weight: bold;">Тревога! Нужны тюрьмы большего размера!</p>`;
+            }
+            
+            document.getElementById('result').innerHTML = resultHTML;
+        });
+    </script>
+  </body>
+</html>
