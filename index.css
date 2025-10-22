@@ -15,7 +15,7 @@
   
   body {
     min-width: 850px;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: 'MyFont-Bold', 'Arial', sans-serif;
   }
   
   .header {
@@ -36,9 +36,9 @@
   
   .header-title {
     margin: auto;
-    color: #8d99ae;
+    color: #2b2d42;
     font-weight: 800;
-    font-size: 74px;
+    font-size: 100px;
     text-transform: uppercase;
   }
   
@@ -135,6 +135,7 @@
     margin-bottom: 10px;
     font-weight: 800;
     font-size: 20px;
+    color: #ef233c;
     text-align: center;
     text-transform: uppercase;
   }
