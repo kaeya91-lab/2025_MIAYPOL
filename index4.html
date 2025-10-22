@@ -63,60 +63,64 @@
 <h2 class="course-title">Передайте нам свои данные</h2>
 
 <form class="form" action='https://www.google.com/search' method="get" target="_blank">
-    <label for="lastname">Фамилия</label><input type="text" name="q" required>
-    <label for="name">Имя</label><input type="text" id="name" required>
-    <label for="groupnumber">Номер группы</label><input type="number" id="groupnumber" required>
-    <label for="email">E-mail</label><input type="email" id="email" required>
-    <label for="date">Дата сообщения</label><input type="date" id="data" required>
+    <input type="hidden" name="q" value="МЯУпол: Личные данные">
+    
+    <label for="lastname">Фамилия</label><input type="text" name="surname" required>
+    <label for="name">Имя</label><input type="text" name="name" required>
+    <label for="groupnumber">Номер группы</label><input type="number" name="group_number" required>
+    <label for="email">E-mail</label><input type="email" name="email" required>
+    <label for="date">Дата сообщения</label><input type="date" name="message_date" required>
     <button type="submit">Отправить в МЯУпол</button>
 </form>
 
 <h2 class="course-title">Сообщить о коте-преступнике</h2>
 <form class="form" action='https://www.google.com/search' method="get" target="_blank">
-    <p> Пол кота-преступника:
-    <input type="Radio" name="q" value="Кошка"> Кошка
-    <input type="Radio" name="q" value="Кот" checked> Кот
+    <input type="hidden" name="q" value="МЯУпол: Сообщение о преступнике">
+    
+    <p>Пол кота-преступника:
+    <input type="Radio" name="gender" value="female"> Кошка
+    <input type="Radio" name="gender" value="male" checked> Кот
     </p>
-    <p> Уровень опасности:
-    <input type="Radio" name="q" value="Низкий"> Низкий
-    <input type="Radio" name="q" value="Средний"> Средний
-    <input type="Radio" name="q" value="Высокий"> Высокий
+    
+    <p>Уровень опасности:
+    <input type="Radio" name="danger_level" value="low"> Низкий
+    <input type="Radio" name="danger_level" value="medium"> Средний
+    <input type="Radio" name="danger_level" value="high"> Высокий
     </p>
-    <p> Тип преступления:
-    <select name="q">
-        <OPTION value="Кража еды">Кража еды</OPTION>
-        <OPTION value="Порча мебели">Порча мебели</OPTION>
-        <OPTION value="Ночной шум">Ночной шум</OPTION>
-        <OPTION value="Другое">Другое</OPTION>
+    
+    <p>Тип преступления:
+    <select name="crime_type">
+        <OPTION value="food_theft">Кража еды</OPTION>
+        <OPTION value="furniture_damage">Порча мебели</OPTION>
+        <OPTION value="night_noise">Ночной шум</OPTION>
+        <OPTION value="other">Другое</OPTION>
     </select>
     </p>
-    <p> Описание преступления:
+    
+    <p>Описание преступления:
     <br>
-    <TEXTAREA cols=80 rows=4 name="q">Опишите подробности преступления...</TEXTAREA>
+    <TEXTAREA cols=80 rows=4 name="crime_description">Опишите подробности преступления...</TEXTAREA>
     </p>
 
-    <p> Дата преступления: <input type="date" name="q"></p>
-    <p> Кодовое слово: <input type="password" name="q" size=9 value="мяу"></p>
-    <p> Номер дела: <input type="text" name="q" value="МЯУ_007_2025.txt" size='30'></p>
+    <p>Дата преступления: <input type="date" name="crime_date"></p>
+    <p>Кодовое слово: <input type="text" name="code_word" value="мяу" size=9></p>
+    <p>Номер дела: <input type="text" name="case_number" value="МЯУ_007_2025.txt" size='30'></p>
 
-    <p> Тип заявки:<select name="q">
-        <OPTION value="Новое дело">Новое дело</OPTION>
-        <OPTION value="Дополнительная информация">Дополнительная информация</OPTION>
-    </select></p>
+    <p>Тип заявки:
+    <select name="request_type">
+        <OPTION value="new">Новое дело</OPTION>
+        <OPTION value="update">Дополнительная информация</OPTION>
+    </select>
+    </p>
 
-    <input type="hidden" name="q" value="МЯУпол">
-    <input type="hidden" name="q" value="normal">
+    <input type="hidden" name="department" value="МЯУпол">
+    <input type="hidden" name="priority" value="normal">
 
     <p>
         <input type="Reset" name="Reset" value="Очистить форму">
         <input type="Submit" name="submit" value="Отправить в розыск">
     </p>
 </form>
-
- 
-
-
-
 
     <div class="up"> 
       <h5 class="up-text"><a href="#up">⇧ Наверх ⇧</a></h5>
