@@ -136,6 +136,7 @@
     font-weight: 800;
     font-size: 20px;
     text-align: center;
+    color: #ef233c;
     text-transform: uppercase;
   }
   
@@ -283,11 +284,6 @@
     text-align: center;
     padding: 20px;
     margin: 50px auto;
-  }
-
-  .card-title {
-    color: #ef233c;
-    margin: 10px 0;
   }
 
   .card {
