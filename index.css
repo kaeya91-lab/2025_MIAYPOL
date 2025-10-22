@@ -118,24 +118,38 @@
   }
   
   .card {
-    display: inline-block;
+    display: block;
     height: 500px;
     width: 360px;
-    margin-right: 20px;
+    margin-right: auto;
     margin-bottom: 100px;
-    border: 1px solid black;
+    border: 1px solid #333;
+    border-radius: 10px;
     padding: 25px 25px 25px;
-    box-shadow: 4px 4px 0 black;
     vertical-align:top;
   }
-
-  
-  
-  
-  .no-right-margin {
-    margin-right: 0;
+  .card-left {
+    display: block;
+    height: 500px;
+    width: 360px;
+    margin-left: 0px;
+    margin-bottom: 100px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 25px 25px 25px;
+    vertical-align:top;
   }
-  
+  .card-right {
+    display: block;
+    height: 500px;
+    width: 360px;
+    margin-right: 0px;
+    margin-bottom: 100px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 25px 25px 25px;
+    vertical-align:top;
+  }
   .card-title {
     margin-bottom: 10px;
     font-weight: 800;
@@ -149,10 +163,12 @@
   }
   
   .card-image {
-    width: 100%;
+    width: 60%;
+    max-width: 500px;
     margin-bottom: 20px;
-    border: 1px solid black;
-    display:flex;
+    border: 1px solid #333;
+    border-radius: 10px;
+    display:block;
   }
 
   .page-frame {
