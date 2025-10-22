@@ -87,12 +87,25 @@
            <button type = "button" class = "button"> Сменить язык на латинницу </button>
 
 
-<h3 id = "console" class = "course-title"> DOM_JS. Считываем информацию из DOM </h3>
-        <img src = "passportconsole.jpg" height = "500px" >
-        <script src = "passport.js">
+<h3 id="console" class="course-title">DOM_JS. Считываем информацию из DOM</h3>
+<img src="passportconsole.jpg" height="500px" id="passportImage">
+<button onclick="enlargeImage()">Увеличить изображение</button>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    
+    window.enlargeImage = function() {
+        const image = document.getElementById('passportImage');
+        
+        const currentHeight = parseInt(image.style.height) || 500;
+        const newHeight = currentHeight + 100;
+        
+        image.style.height = newHeight + 'px';
+        
+        console.log('Изображение увеличено до: ' + newHeight + 'px');
+    };
 });
+</script>
+      
 </script>
     <footer class="footer" id="communication">
       <h4 class="footer-author">
